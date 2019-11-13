@@ -1,0 +1,75 @@
+/*
+PMWA/ PMWB (vitesse des moteurs) sur motor shield traduit sur arduino en D5 et D4
+DA et DB (direction moteurs) sur motor shield traduit en arduino sur D0 et D2 
+*/
+
+void setup() // INITIALISATION
+{ 
+  pinMode (D5, OUTPUT);
+  pinMode (D4, OUTPUT);
+  pinMode (D0, OUTPUT);
+  pinMode (D2, OUTPUT);
+}
+
+
+void avancer ()//AVANCER
+  {
+  digitalWrite (D5,HIGH); //vitesse moteur DROIT
+  digitalWrite (D4, HIGH); //vitesse moteur GAUCHE
+  digitalWrite (D0,HIGH); //direction moteur DROIT
+  digitalWrite (D2, HIGH); //direction moteur GAUCHE
+  
+  delay(10000); // laisser avancer robot pendant 10 s
+  }
+
+
+void  droite ()//TOURNER A DROITE
+  {
+  digitalWrite (D5,LOW); //vitesse moteur DROIT
+  digitalWrite (D4, HIGH); //vitesse moteur GAUCHE
+  digitalWrite (D0,HIGH); //direction moteur DROIT
+  digitalWrite (D2, HIGH); //direction moteur GAUCHE
+  
+  delay(10000); // laisser avancer robot pendant 10 s
+  }
+  
+void   gauche  () //TOURNER A GAUCHE 
+  {
+  digitalWrite (D5,HIGH); //vitesse moteur DROIT
+  digitalWrite (D4, LOW); //vitesse moteur GAUCHE
+  digitalWrite (D0,HIGH); //direction moteur DROIT
+  digitalWrite (D2, HIGH); //direction moteur GAUCHE
+  
+  delay(10000); // laisser avancer robot pendant 10 s
+  }
+  
+void  reculer ()//RECULER
+  {
+  digitalWrite (D5,HIGH); //vitesse moteur DROIT
+  digitalWrite (D4, HIGH); //vitesse moteur GAUCHE
+  digitalWrite (D0,LOW); //direction moteur DROIT
+  digitalWrite (D2, LOW); //direction moteur GAUCHE
+  
+  delay(10000); // laisser avancer robot pendant 10 s
+  }
+
+
+   void arreter ()//STOP
+  {
+  digitalWrite (D5,LOW); //vitesse moteur DROIT
+  digitalWrite (D4, LOW); //vitesse moteur GAUCHE
+  digitalWrite (D0,LOW); //direction moteur DROIT
+  digitalWrite (D2, LOW); //direction moteur GAUCHE
+  
+  delay(10000); // laisser avancer robot pendant 10 s
+  }
+
+
+void loop() // PLUSIEURS FOIS-MAIN
+{
+  avancer();
+  droite();
+  gauche();
+  reculer();
+  arreter();
+}
