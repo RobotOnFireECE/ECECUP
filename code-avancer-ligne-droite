@@ -1,23 +1,24 @@
 # ECECUP
-/*int PMWA = D1; //traduction pmwa sur shield  vitesse moteur 1 -> sur arduino
-int PMWB = D2;//PMWB
-int D3 = D3; //od3 ddirection motor 1 sur shield -> arduino
-int D5 = D4;//D4*/
+/*
+PMWA/ PMWB (vitesse des moteurs) sur motor shield traduit sur arduino en D5 et D4
+DA et DB (direction moteurs) sur motor shield traduit en arduino sur D0 et D2 
+*/
 
 void setup() // put your setup code here, to run once:
 { 
-  pinMode (D1, OUTPUT);
-  pinMode (D2, OUTPUT);
-  pinMode (D3, OUTPUT);
+  pinMode (D5, OUTPUT);
   pinMode (D4, OUTPUT);
+  pinMode (D0, OUTPUT);
+  pinMode (D2, OUTPUT);
 }
 
 void loop() // put your main code here, to run repeatedly:
 {
-  analogWrite (D1,255); //vitesse moteur 1
-  digitalWrite (D2, HIGH); //sens rota mot 1
-  analogWrite (D3,255); //vitesse moteur 2
-  digitalWrite (D4, HIGH); //sens rota mot 2
+  digitalWrite (D5,HIGH); //vitesse moteur DROIT
+  digitalWrite (D4, HIGH); //vitesse moteur GAUCHE
+  digitalWrite (D0,HIGH); //direction moteur DROIT
+  digitalWrite (D2, HIGH); //direction moteur GAUCHE
   
-  delay(20000); // laisser avancer robot pendant 20 s
+  delay(10000); // laisser avancer robot pendant 10 s
 }
+//si marche pas alors enlever les D
